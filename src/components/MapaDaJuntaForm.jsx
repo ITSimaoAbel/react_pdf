@@ -3,7 +3,8 @@ import jsPDF from 'jspdf';
 import './Formulario.css';
 //import axios from 'axios';
 
-function MapaDaJuntaForm() {
+export const MapaDaJuntaForm = () => {
+  // Usamos esse hook useState para criar variaveis que vao guardar dados nos formularios
   const [formData, setFormData] = useState({
     entidadeQueEnvia: '',
     nome: '',
@@ -46,7 +47,9 @@ function MapaDaJuntaForm() {
     console.log("Dados do formulário:", formData);
   };
 
-
+  // Essa funcao vai gerar o pdf, usando a biblioteca jsPDF
+  //usamos doc.text para adicionar os conteudos dos inputs no pdf
+  //usamos doc.save para baixar o pdf
   const generatePDF = () => {
     const doc = new jsPDF();
     doc.setFontSize(12);
@@ -74,7 +77,7 @@ function MapaDaJuntaForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Mapa da Junta</h2>
+      <h1>Mapa da Junta</h1>
       
       <label>
         Entidade que envia:
@@ -162,5 +165,3 @@ function MapaDaJuntaForm() {
     </form>
   );
 }
-
-export default MapaDaJuntaForm;

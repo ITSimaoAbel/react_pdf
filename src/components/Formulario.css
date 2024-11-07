@@ -8,7 +8,7 @@ form {
     font-family: Arial, sans-serif;
   }
   
-  form h2 {
+  form h1 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
@@ -58,7 +58,6 @@ form {
     background-color: #45a049;
   }
   
-  /* Organização em colunas para campos específicos */
   .form-group {
     display: flex;
     justify-content: space-between;

@@ -1,4 +1,4 @@
-import {MapaDaJuntaForm} from './components/MapaDaJuntaForm'
+import { MapaDaJuntaForm } from './components/MapaDaJuntaForm'
 
 export const  App = () => {
 
