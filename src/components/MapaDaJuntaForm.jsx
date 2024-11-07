@@ -52,32 +52,39 @@ export const MapaDaJuntaForm = () => {
   //usamos doc.save para baixar o pdf
   const generatePDF = () => {
     const doc = new jsPDF();
-    doc.setFontSize(12);
+    doc.setFontSize(12); 
 
     doc.text('Mapa da Junta', 20, 10);
-    doc.text(`Entidade que envia: ${formData.entidadeQueEnvia}`, 20, 20);
-    doc.text(`Nome: ${formData.nome}`, 20, 30);
-    doc.text(`B.I. (Nº Arq. Data): ${formData.bi}`, 20, 40);
-    doc.text(`Naturalidade: ${formData.naturalidade}`, 20, 50);
-    doc.text(`Data de Nascimento: ${formData.dataNascimento}`, 20, 60);
-    doc.text(`Local de Trabalho: ${formData.localTrabalho}`, 20, 70);
-    doc.text(`Profissão: ${formData.profissao}`, 20, 80);
-    doc.text(`Licença da Junta (Data): ${formData.licencaData}`, 20, 90);
-    doc.text(`Homologação (Data): ${formData.homologacaoData}`, 20, 100);
-    doc.text(`Lesão e número correspondente: ${formData.lesao}`, 20, 110);
-    doc.text(`Funções alteradas e em que grau: ${formData.funcaoAlterada}`, 20, 120);
-    doc.text(`Antiguidade da lesão: ${formData.antiguidade}`, 20, 130);
-    doc.text(`Se foi contraído em serviço: ${formData.contratacao}`, 20, 140);
-    doc.text(`O Presidente: ${formData.presidente}`, 20, 150);
-    doc.text(`1º Vogal: ${formData.vogal1}`, 20, 160);
-    doc.text(`2º Vogal: ${formData.vogal2}`, 20, 170);
+    doc.text(`Em sessão de (Data): ${formData.sessao}`, 20, 20);
+    doc.text(`Entidade que envia: ${formData.entidadeQueEnvia}`, 20, 30);
+    doc.text(`Nome: ${formData.nome}`, 20, 40);
+    doc.text(`B.I. (Nº Arq. Data): ${formData.bi}`, 20, 50);
+    doc.text(`Naturalidade: ${formData.naturalidade}`, 20, 60);
+    doc.text(`Data de Nascimento: ${formData.dataNascimento}`, 20, 70);
+    doc.text(`Local de Trabalho: ${formData.localTrabalho}`, 20, 80);
+    doc.text(`Profissão: ${formData.profissao}`, 20, 90);
+    doc.text(`Licença da Junta (Data): ${formData.licencaData}`, 20, 100);
+    doc.text(`Homologação (Data): ${formData.homologacaoData}`, 20, 110);
+    doc.text(`Lesão e número correspondente: ${formData.lesao}`, 20, 120);
+    doc.text(`Funções alteradas e em que grau: ${formData.funcaoAlterada}`, 20, 130);
+    doc.text(`Antiguidade da lesão: ${formData.antiguidade}`, 20, 140);
+    doc.text(`Se foi contraído em serviço: ${formData.contratacao}`, 20, 150);
+    doc.text(`O Presidente: ${formData.presidente}`, 20, 160);
+    doc.text(`1º Vogal: ${formData.vogal1}`, 20, 170);
+    doc.text(`2º Vogal: ${formData.vogal2}`, 20, 180);
 
     doc.save('MapaDaJunta.pdf');
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Mapa da Junta</h1>
+      <div>
+        <h1>Mapa da Junta</h1>
+        <label>
+          Em sessão de (Data):
+          <input type="date" name="sessao" value={formData.sessao} onChange={handleChange} />
+        </label>
+      </div>
       
       <label>
         Entidade que envia:
