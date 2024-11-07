@@ -46,12 +46,10 @@ function MapaDaJuntaForm() {
     console.log("Dados do formulário:", formData);
   };
 
-  // Função para gerar o PDF
   const generatePDF = () => {
     const doc = new jsPDF();
     doc.setFontSize(12);
 
-    // Adicionando conteúdo ao PDF
     doc.text('Mapa da Junta', 20, 10);
     doc.text(`Entidade que envia: ${formData.entidadeQueEnvia}`, 20, 20);
     doc.text(`Nome: ${formData.nome}`, 20, 30);
