@@ -46,6 +46,7 @@ function MapaDaJuntaForm() {
     console.log("Dados do formulário:", formData);
   };
 
+
   const generatePDF = () => {
     const doc = new jsPDF();
     doc.setFontSize(12);
@@ -68,7 +69,6 @@ function MapaDaJuntaForm() {
     doc.text(`1º Vogal: ${formData.vogal1}`, 20, 160);
     doc.text(`2º Vogal: ${formData.vogal2}`, 20, 170);
 
-    // Baixando o PDF
     doc.save('MapaDaJunta.pdf');
   };
 
@@ -158,7 +158,7 @@ function MapaDaJuntaForm() {
         <input type="text" name="vogal2" value={formData.vogal2} onChange={handleChange} />
       </label>
       
-      <button type="button" onClick={generatePDF}>Baixar em PDF</button>
+      <button type="button" onClick={generatePDF}>Baixar PDF</button>
     </form>
   );
 }
