@@ -47,14 +47,42 @@ export const MapaDaJuntaForm = () => {
     console.log("Dados do formulário:", formData);
   };
 
+
+ const loadImage = () => {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.src = '/emblema.jpeg';
+
+    image.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = image.width;
+      canvas.height = image.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(image, 0, 0);
+      resolve(canvas.toDataURL('image/jpeg')); 
+    };
+
+    image.onerror = (error) => {
+      reject(error);
+    };
+  });
+};
+
+
+
   // Essa funcao vai gerar o pdf, usando a biblioteca jsPDF
   //usamos doc.text para adicionar os conteudos dos inputs no pdf
   //usamos doc.save para baixar o pdf
-  const generatePDF = () => {
+  const generatePDF = async () => {
     const doc = new jsPDF();
     doc.setFontSize(12); 
 
-    doc.text('Mapa da Junta', 20, 10);
+    const imgData = await loadImage(); // Carregar a imagem
+
+    // Adicionar a imagem ao PDF
+    doc.addImage(imgData, 'JPEG', 10, 10, 50, 50); // Adicionando a imagem ao PDF, na posição (10, 10) e tamanho (50x50)
+
+    doc.text('Mapa da Junta', 80, 10);
     doc.text(`Em sessão de (Data): ${formData.sessao}`, 20, 20);
     doc.text(`Entidade que envia: ${formData.entidadeQueEnvia}`, 20, 30);
     doc.text(`Nome: ${formData.nome}`, 20, 40);
