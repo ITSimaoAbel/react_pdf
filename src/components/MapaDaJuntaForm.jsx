@@ -80,26 +80,31 @@ export const MapaDaJuntaForm = () => {
     const imgData = await loadImage(); // Carregar a imagem
 
     // Adicionar a imagem ao PDF
-    doc.addImage(imgData, 'JPEG', 10, 10, 50, 50); // Adicionando a imagem ao PDF, na posição (10, 10) e tamanho (50x50)
-
-    doc.text('Mapa da Junta', 80, 10);
-    doc.text(`Em sessão de (Data): ${formData.sessao}`, 20, 20);
-    doc.text(`Entidade que envia: ${formData.entidadeQueEnvia}`, 20, 30);
-    doc.text(`Nome: ${formData.nome}`, 20, 40);
-    doc.text(`B.I. (Nº Arq. Data): ${formData.bi}`, 20, 50);
-    doc.text(`Naturalidade: ${formData.naturalidade}`, 20, 60);
-    doc.text(`Data de Nascimento: ${formData.dataNascimento}`, 20, 70);
-    doc.text(`Local de Trabalho: ${formData.localTrabalho}`, 20, 80);
-    doc.text(`Profissão: ${formData.profissao}`, 20, 90);
-    doc.text(`Licença da Junta (Data): ${formData.licencaData}`, 20, 100);
-    doc.text(`Homologação (Data): ${formData.homologacaoData}`, 20, 110);
-    doc.text(`Lesão e número correspondente: ${formData.lesao}`, 20, 120);
-    doc.text(`Funções alteradas e em que grau: ${formData.funcaoAlterada}`, 20, 130);
-    doc.text(`Antiguidade da lesão: ${formData.antiguidade}`, 20, 140);
-    doc.text(`Se foi contraído em serviço: ${formData.contratacao}`, 20, 150);
-    doc.text(`O Presidente: ${formData.presidente}`, 20, 160);
-    doc.text(`1º Vogal: ${formData.vogal1}`, 20, 170);
-    doc.text(`2º Vogal: ${formData.vogal2}`, 20, 180);
+    doc.addImage(imgData, 'JPEG', 50, 10, 15, 15); // Adicionando a imagem ao PDF, na posição (10, 10) e tamanho (50x50)
+    doc.text('SERVIÇO NACIONAL DE SAÚDE', 20, 30);
+    doc.text('REPUBLICA DE MOÇAMBIQUE', 20, 40);
+    //doc.text('MAPA DA JUNTA', 140, 30);
+    
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text("Mapa da Junta", 125, 20);
+    // doc.text(`Em sessão de (Data): ${formData.sessao}`, 20, 20);
+    // doc.text(`Entidade que envia: ${formData.entidadeQueEnvia}`, 20, 30);
+    // doc.text(`Nome: ${formData.nome}`, 20, 40);
+    // doc.text(`B.I. (Nº Arq. Data): ${formData.bi}`, 20, 50);
+    // doc.text(`Naturalidade: ${formData.naturalidade}`, 20, 60);
+    // doc.text(`Data de Nascimento: ${formData.dataNascimento}`, 20, 70);
+    // doc.text(`Local de Trabalho: ${formData.localTrabalho}`, 20, 80);
+    // doc.text(`Profissão: ${formData.profissao}`, 20, 90);
+    // doc.text(`Licença da Junta (Data): ${formData.licencaData}`, 20, 100);
+    // doc.text(`Homologação (Data): ${formData.homologacaoData}`, 20, 110);
+    // doc.text(`Lesão e número correspondente: ${formData.lesao}`, 20, 120);
+    // doc.text(`Funções alteradas e em que grau: ${formData.funcaoAlterada}`, 20, 130);
+    // doc.text(`Antiguidade da lesão: ${formData.antiguidade}`, 20, 140);
+    // doc.text(`Se foi contraído em serviço: ${formData.contratacao}`, 20, 150);
+    // doc.text(`O Presidente: ${formData.presidente}`, 20, 160);
+    // doc.text(`1º Vogal: ${formData.vogal1}`, 20, 170);
+    // doc.text(`2º Vogal: ${formData.vogal2}`, 20, 180);
 
     doc.save('MapaDaJunta.pdf');
   };
